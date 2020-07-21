@@ -10,7 +10,7 @@ const setup = async () => {
     const listener = new OrderCancelledListener(natsWrapper.client);
 
 
-    const orderId = mongoose.Types.ObjectId().toHexString(),
+    const orderId = mongoose.Types.ObjectId().toHexString()
     // create and save ticket
     const ticket = Ticket.build({
         title: 'concert',
