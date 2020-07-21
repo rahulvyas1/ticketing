@@ -6,8 +6,8 @@ export default ({ req }) => {
     return axios.create({
       baseURL:
         "http://www.ticket-microservices-app.xyz/",
-      headers: req.headers,
 
+      headers: req.headers,
     });
   } else {
     // we are on the browser
