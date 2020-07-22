@@ -34,6 +34,7 @@ router.post(
 
         // Calculate an expiration date for this order
         const expiration = new Date();
+
         expiration.setSeconds(expiration.getSeconds() + EXPIRATION_WINDOW_SECONDS)
 
 
@@ -45,6 +46,9 @@ router.post(
             ticket
         })
         await order.save();
+
+        console.log("created order: ",order)
+
 
         new OrderCreatedPublisher(natsWrapper.client).publish({
             version: order.version,

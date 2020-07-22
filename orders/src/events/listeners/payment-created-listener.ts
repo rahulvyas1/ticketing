@@ -13,7 +13,7 @@ export class PaymentCreatedListener extends Listener<PaymentCreatedEvent>{
 
     async onMessage(data: PaymentCreatedEvent['data'], msg: Message) {
         const { id, orderId } = data;
-        console.log(orderId)
+        console.log("orderId",orderId)
         const allOrders  = await Order.find({});
         console.log('all orders',allOrders)
         const order = await Order.findById(orderId)
