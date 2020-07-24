@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: emailing-redis-depl
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: emailing-redis
+    template:
+        metadata:
+            labels:
+                app: emailing-redis
+        spec:
+            containers:
+                - name: emailing-redis
+                  image: redis
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+    name: emailing-redis-srv
+spec:
+    selector:
+        app: emailing-redis
+    ports:
+        - name: db
+          protocol: TCP
+          port: 6379
+          targetPort: 6379

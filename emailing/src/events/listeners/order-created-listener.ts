@@ -11,11 +11,9 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent>{
     async onMessage(data: OrderCreatedEvent['data'], msg: Message) {
 
         const user = await User.findById(data.userId);
-
         if (!user) {
             throw new Error('User not found!')
         }
-
 
         const email = Email.build({
             address: user.email,
