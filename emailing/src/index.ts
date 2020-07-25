@@ -6,7 +6,7 @@ import { OrderCreatedListener } from './events/listeners/order-created-listener'
 
 
 const start = async () => {
-  console.log('Emailing service starting.......')
+  console.log('Emailing service starting..........')
   if (!process.env.MONGO_URI) {
     throw new Error('MONGO_URI must be defined');
   }
