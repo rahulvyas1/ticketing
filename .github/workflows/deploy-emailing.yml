@@ -1,4 +1,4 @@
-name: deploy-client
+name: deploy-emailing
 on:
   push:
     branches:
@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd client && docker build -t rahulvyas/client .
+      - run: cd emailing && docker build -t rahulvyas/emailing .
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker push rahulvyas/client
+      - run: docker push rahulvyas/emailing
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save ticketing-cluster
-      - run: kubectl rollout restart deployment client-depl
+      - run: kubectl rollout restart deployment emailing-depl
