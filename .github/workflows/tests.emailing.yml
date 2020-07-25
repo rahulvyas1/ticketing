@@ -1,0 +1,13 @@
+name: tests.emailing
+
+on:
+  pull_request:
+    paths:
+      - 'emailing/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd emailing &&  npm i && npm run test:ci
