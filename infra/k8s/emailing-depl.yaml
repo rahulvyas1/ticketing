@@ -26,3 +26,7 @@ spec:
                       value: ticketing
                     - name: MONGO_URI
                       value: 'mongodb://emailing-mongo-srv:27017/emailing'
+                    - name: SENDGRID_API_KEY
+                      value: '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'
+                    - name: REDIS_HOST
+                      value: emailing-redis-srv

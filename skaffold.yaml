@@ -57,3 +57,11 @@ build:
             manual:
                 - src: './src/**/*.ts'
                   dest: .
+        - image: rahulvyas/emailing
+          context: emailing
+          docker:
+            dockerfile: dockerfile
+          sync:
+            manual:
+                - src: './src/**/*.ts'
+                  dest: .

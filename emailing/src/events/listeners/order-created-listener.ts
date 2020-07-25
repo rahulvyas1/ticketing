@@ -15,6 +15,8 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent>{
             throw new Error('User not found!')
         }
 
+        console.log('o-c-l')
+
         const email = Email.build({
             address: user.email,
             event: Subjects.OrderCreated,
